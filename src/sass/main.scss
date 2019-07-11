@@ -1,0 +1,42 @@
+@import "../../node_modules/bootstrap/dist/css/bootstrap";
+@import "../../node_modules/animate.css/animate";
+@import "components/header";
+@import "components/card";
+
+@mixin fx($dir: row, $wrap: nowrap, $just: center, $align: center) {
+  align-items: $align;
+  display: flex;
+  flex-flow: $dir $wrap;
+  justify-content: $just;
+}
+body {
+  background-color:lightskyblue;
+}
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+footer p {
+  margin-bottom: .25rem;
+}
+.footer{
+  display: flex;
+  align-items: center;
+}
+
+
+container {
+  background-color: #0c5460;
+}
+
+.album img {
+  height: 225px;
+  object-fit: contain;
+}
+card:hover{
+  transform: scale(1.1);
+}
+
+.anim{
+  animation-duration: 1s;
+}

@@ -1,0 +1,16 @@
+<footer>
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="mb-4">
+                <a href="#">Copyright 2019</a>
+            </div>
+            <div class="mb-4">
+                <p>Made by SebFox</p>
+            </div>
+
+        </div>
+    </div>
+</footer>
+<script src="js/main-minified.js"></script>
+</body>
+</html>
