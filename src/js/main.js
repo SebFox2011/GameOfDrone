@@ -10,7 +10,8 @@
 
             player: new Character(
                 true,
-                'Sébastien',//prompt('Ton nom héro ?', 'Hercule'),
+                prompt('Ton nom héro ?', 'Hercule'),
+                //'Sébastien',//prompt('Ton nom héro ?', 'Hercule'),
                 100 + Math.round(Math.random() * 200),
                 Math.round(Math.random() * 50),
                 10 + Math.round(Math.random() * 15),
@@ -25,7 +26,8 @@
                 'pCoupCritique',
                 'pLevel',
                 'pConsole',
-                'pExperience'),
+                'pExperience',
+                'pBar'),
 
             monster: new Character(
                 false,
@@ -44,7 +46,8 @@
                 'mCoupCritique',
                 'mLevel',
                 'mConsole',
-                'mExperience'),
+                'mExperience',
+                'mBar'),
         },
 
         init: function () {

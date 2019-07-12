@@ -1,6 +1,6 @@
 class Character {
     constructor (isHero,name,lifeStart,dodge,attack,critical,level,coef,elCard,elName,elLife,
-    elDodge,elAttack,elCritical,elLevel,elConsole,elExperience){
+    elDodge,elAttack,elCritical,elLevel,elConsole,elExperience,elProgressBar){
         this.isHero=isHero;
         this.name=name;
         this.lifeStart=lifeStart;
@@ -21,6 +21,7 @@ class Character {
         this.elLevel = document.getElementById(elLevel);
         this.elConsole = document.getElementById(elConsole);
         this.elExperience=document.getElementById(elExperience);
+        this.elProgressBar=document.getElementById(elProgressBar);
     }
 
     updateUi(){
@@ -32,6 +33,10 @@ class Character {
         this.elExperience.innerText=this.experience;
         this.elCritical.innerText=this.critical;
         this.elLevel.innerText=this.level;
+        this.elProgressBar.style.width=this.life*100/this.lifeStart+'%';
+        this.elProgressBar.innerText=Math.round(this.life*100/this.lifeStart)+' %';
+        //s.player.elProgressBar.style.width=player.life*100/player.lifeStart+'%';
+        //s.player.elProgressBar.innerText=Math.round(player.life*100/player.lifeStart)+' %';
     }
 
     console(text){
