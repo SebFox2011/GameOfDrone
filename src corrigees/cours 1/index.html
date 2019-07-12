@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript</title>
+
+  </head>
+
+  <body>
+    <h1>Bataille</h1>
+    <script>
+      // VARIABLES
+      var name = 'Matthieu',
+        score = 0,
+        armed = false;
+
+      console.log('Name : ' + name, 'Score : ' + score, 'Armed :' + armed);
+
+      var scored = 10;
+
+      console.log('Name : ' + name, 'Score : ' + (score + scored), 'Armed :' + armed);
+
+
+      // TABLEAUX
+      var inventory = ['arc', 'fusil à pompe', 'métaux', 'conserve', 'pierre'];
+      // Affiche métaux
+      console.log(inventory[2]);
+
+      var player = ['Matthieu', 0, false];
+
+      console.log('Name : ' + player[0], 'Score : ' + player[1], 'Armed :' + player[2]);
+
+      player.push(true);
+
+      console.log(player.length);
+
+      var sample = [
+        'test',
+        'test',
+        'test',
+        'test',
+        'test',
+        'test',
+        'test',
+        'test',
+        'test',
+        'test',
+        'test',
+        'test',
+        'test',
+        'test',
+        'test',
+        'test',
+        'test',
+        'test',
+        'test',
+        'test1'
+      ]
+
+      // OBJETS
+
+      var human = {
+        age: 24,
+        name: 'Matthieu',
+        inventory: ['sleeping bag', 'sword', 'vegetable']
+      };
+
+      // Affiche vegetable
+      console.log(human.inventory[2]);
+
+      // FONCTION NOMMEE
+      function getFullName(firstName, lastName) {
+        alert(firstName + ' ' + lastName);
+      }
+
+      // getFullName('Sophie', 'Schneider');
+
+
+      // FONCTION AUTO-APPELEE
+      (function () {
+        var troll = {
+          life: 100
+        };
+
+        console.log(troll);
+      })();
+    </script>
+  </body>
+
+</html>

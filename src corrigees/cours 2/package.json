@@ -1,0 +1,40 @@
+{
+  "name": "woodstack",
+  "version": "1.0.0",
+  "description": "La stack en bois",
+  "main": "index.js",
+  "watch": {
+    "build-html": {
+      "patterns": "src/html",
+      "extensions": "shtml",
+      "quiet": false
+    },
+    "build-css": {
+      "patterns": "src/sass",
+      "extensions": "scss,sass",
+      "quiet": false
+    },
+    "build-img": {
+      "patterns": "src/img",
+      "extensions": "jpg,jpeg,png,gif",
+      "quiet": false
+    }
+  },
+  "scripts": {
+    "build-html": "shtml2html -s src/html -d dist/",
+    "build-css": "node-sass -r src/sass -o dist/css --output-style=compressed",
+    "build-img": "imagemin src/img/* --out-dir=dist/img",
+    "watch": "npm-watch"
+  },
+  "author": "Matthieu Schneider",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  },
+  "devDependencies": {
+    "imagemin-cli": "^4.0.1",
+    "node-sass": "^4.12.0",
+    "npm-watch": "^0.6.0",
+    "shtml2html": "^1.0.5"
+  }
+}
