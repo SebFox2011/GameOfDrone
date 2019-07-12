@@ -66,8 +66,8 @@
                 //Mise à jour du player et du monster
                 p.updateUi();
                 m.updateUi();
-
-                s.elRound.innerText = s.nbRound;
+                s.elRound.innerText = 0;
+                //s.elRound.innerText = s.nbRound;
                 //Mise à jour des 2 progress bar de vie
                 //s.player.elProgressBar.style.width=player.life*100/player.lifeStart+'%';
                 //s.player.elProgressBar.innerText=Math.round(player.life*100/player.lifeStart)+' %';

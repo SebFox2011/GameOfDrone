@@ -47,7 +47,7 @@ class Character {
     }
 
     hasCritical(){
-        return (Math.random()* 100 < this.critical);
+        return (Math.random() < this.critical/100);
     }
 
     changeLife(hp){

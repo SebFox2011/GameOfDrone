@@ -8,20 +8,14 @@ class Round {
         if (this.attacker.newBorn) {
             this.attacker.console('* ' + this.attacker.name + ' lvl ' + this.attacker.level + ' passe à l\'attaque !!');
             this.attacker.newBorn = false;
-            //s.nbRound=0;
-
-            setTimeout(function () {
-
-                this.attacker.animate('bounceInUp', 1000, 0, 1000);
-            }, 1000);
-
             return;
         }
         this.attacker.console('------ Round ' + 'X' + ' ------ \n');
         this.attacker.console('> J\'attaque ' + this.defender.name + ' !\n');
 
         // Vérification si le défendant a paré l'attaque
-        if (this.defender.hasDodge) {
+        if (this.defender.hasDodge()) {
+            console.log(this.defender.dodge);
             this.attacker.console('> ' + this.defender.name + ' pare mon attaque...\n');
             this.defender.animate('flash', 1000, 0, 1000);//Animation d'esquive
         } else {
@@ -32,7 +26,7 @@ class Round {
             this.defender.animate(((isCritical) ? 'wobble' : 'shake'), 1000, 0, 1000);
 
             // Si le défendant est mort
-            if (this.defender.hasDied) {
+            if (this.defender.hasDied()) {
                 this.defender.life = 0;
 
                 this.defender.animate('hinge', 1000, 0, 1000);
@@ -76,13 +70,17 @@ class Round {
                                         alert('Ton attaque a été augmentée de 2 points, ce qui l\'amène a ' + self.attacker.attack + ' points');
                                         break;
                                     default :
-                                        self.attacker.coupCritique = (self.attacker.critical + 1 >= 100) ? 100 : self.attacker.critical + 1;
+                                        self.attacker.critical = (self.attacker.critical + 1 >= 100) ? 100 : self.attacker.critical + 1;
                                         alert('Ton coup critique a été augmentée de 1 %, ce qui l\'amène a ' + self.attacker.critical + '%');
 
                                 }
                             }
 
                             self.defender.animate('jackInTheBox', 1000, 0, 2000);
+
+                            self.attacker.updateUi();
+                            self.defender.updateUi();
+
                         }, 1000);
                         break;
                     default:
