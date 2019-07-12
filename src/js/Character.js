@@ -33,4 +33,18 @@ class Character {
         this.elLevel.innerText=this.level;
     }
 
+    // Gestion de l'anination des personnages
+    animate (anim,duration,delay,remove){
+
+        this.elCard.style.animationDelay = delay + 'ms';
+        this.elCard.style.animationDuration = duration + 'ms';
+        this.elCard.style.animationFillMode = 'both';
+        this.elCard.style.zIndex = 100 ;
+        this.elCard.classList.add(anim);
+
+        setTimeout(function (){
+            this.elCard.classList.remove(anim);
+        },remove);
+    }
+
  }

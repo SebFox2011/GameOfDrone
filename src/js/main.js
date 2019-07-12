@@ -9,7 +9,8 @@
             elTrigger: document.getElementById('trigger'),
             elRound:document.getElementById('nbRound'),
 
-            player: new Character(prompt('Ton nom héro ?', 'Hercule'),
+            player: new Character(//prompt('Ton nom héro ?', 'Hercule'),
+                'Sébastien',
                 100 + Math.round(Math.random()*200),
                 Math.round(Math.random()*50),
                 10 + Math.round(Math.random()*15),
@@ -74,20 +75,6 @@
 
             },
 
-            // Gestion de l'anination des personnages
-            animate: function(character,anim,duration,delay,remove){
-
-                character.elCard.style.animationDelay = delay + 'ms';
-                character.elCard.style.animationDuration = duration + 'ms';
-                character.elCard.style.animationFillMode = 'both';
-                character.elCard.style.zIndex = 100 ;
-                character.elCard.classList.add(anim);
-
-                setTimeout(function (){
-                    character.elCard.classList.remove(anim);
-                },remove);
-            },
-
             play:function () {
 
                 self.methods.round(p, m);
@@ -106,7 +93,7 @@
 
                     setTimeout(function (){
 
-                        self.methods.animate(attacker,'bounceInUp',1000,0,1000);
+                        attacker.animate('bounceInUp',1000,0,1000);
                     },1000);
 
                     return;
@@ -118,7 +105,7 @@
 
                 // Vérification si le défendant a paré l'attaque
                 if(Math.random() < defender.dodge / 100 ) {
-                    self.methods.animate(defender,'jello',1000,0,1000);
+                    defender.animate('jello',1000,0,1000);
                     attacker.elConsole.innerText += '> ' + defender.name + ' pare mon attaque...\n';
                 } else { // Sinon le défendant prend des dégâts correspondant à l'attaque de l'attaquant
                     var isCritial =(Math.random()* 100 < defender.coupCritique);
@@ -128,13 +115,13 @@
                     attacker.elConsole.innerText += '> J\'inflige ' + (isCritial ?attacker.attack * 2  + ' points de dégât Critiques à ':attacker.attack  + ' points de dégât à ')  + defender.name + ' !!\n';
 
 
-                    self.methods.animate(defender,((isCritial)?'flash':'shake'),1000,0,1000);
+                    defender.animate(((isCritial)?'flash':'shake'),1000,0,1000);
 
                     // Si le défendant est mort
                     if(defender.life <= 0) {
                         defender.life=0;
                         attacker.elConsole.innerText += '> J\'ai vaincu ' + defender.name + '\n';
-                        self.methods.animate(defender,'hinge',1000,0,1000);
+                        defender.animate('hinge',1000,0,1000);
                         //Réinitialisation  des historiques de la console
                         attacker.elConsole.innerText='';
                         defender.elConsole.innerText='';
@@ -187,7 +174,6 @@
                             default:
                                 alert('Vous etes mort ! en affrontant ' + attacker.name +' de niveau : '+ m.level);
                                 window.location.reload();
-
                         }
                         return;
                     }
