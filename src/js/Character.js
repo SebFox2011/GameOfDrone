@@ -35,8 +35,6 @@ class Character {
         this.elLevel.innerText=this.level;
         this.elProgressBar.style.width=this.life*100/this.lifeStart+'%';
         this.elProgressBar.innerText=Math.round(this.life*100/this.lifeStart)+' %';
-        //s.player.elProgressBar.style.width=player.life*100/player.lifeStart+'%';
-        //s.player.elProgressBar.innerText=Math.round(player.life*100/player.lifeStart)+' %';
     }
 
     console(text){

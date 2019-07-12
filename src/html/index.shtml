@@ -3,20 +3,23 @@
 <div class="container album py-5 bg-light">
     <div class="row justify-content-center align-items-center">
         <div class="col-md-4">
-            <div id="player" class="card text-center mb-4 shadow-sm rounded bg-warning anim">
+            <div id="player" class="card text-left mb-4 shadow-sm rounded bg-warning anim">
                 <img src="img/Scrat.jpg" class="card-img-top" alt="Image de Scrat">
                 <div class="card-body">
                     <h5 class="card-title">Player</h5>
                     <p>🧔🏻 Nom: <span id="pName"></span> level: <span id="pLevel"></span></p>
-                    <p>❤️ Vie: <span id="pLife"></span></p>
+                    <div class="row">
+                        <p class="col-md-8">❤️ Vie: <span id="pLife"></span></p>
+                        <div class="progress col-md-4">
+                            <div id="pBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%"
+                                 aria-valuenow="60" aria-valuemin="0" aria-valuemax="50"></span></div>
+                        </div>
+                    </div>
                     <p>🛡 Esquive: <span id="pDodge"></span></p>
                     <p>🗡 Attaque: <span id="pAttack"></span></p>
                     <p>🏆 Experience: <span id="pExperience"></span></p>
                     <p>🌭 Coup critique: <span id="pCoupCritique"></span></p>
-                    <div class="progress">
-                        <div id="pBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%"
-                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="50"></span></div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -24,20 +27,22 @@
             <button id="trigger" type="button" class="btn btn-danger col-md-3">🤺 Fight</button>
 
         <div class="col-md-4">
-            <div id="monster" class="card text-center mb-4 shadow-sm bg-warning anim">
+            <div id="monster" class="card text-left mb-4 shadow-sm bg-warning anim">
                 <img src="img/monster.jpeg" class="card-img-top" alt="Image du monster">
                 <div class="card-body">
                     <h5 class="card-title">Monster</h5>
                     <p>🧛Nom: <span id="mName"></span> level: <span id="mLevel"></span></p>
-                    <p>❤️Vie: <span id="mLife"></span></p>
+                    <div class="row">
+                        <p class="col-md-8">❤️Vie: <span id="mLife"></span></p>
+                        <div class="progress col-md-4">
+                            <div id="mBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%"
+                                 aria-valuenow="60" aria-valuemin="0" aria-valuemax="50"></div>
+                        </div>
+                    </div>
                     <p>🛡Esquive: <span id="mDodge"></span></p>
                     <p>🗡Attaque: <span id="mAttack"></span></p>
                     <p>🏆 Experience: <span id="mExperience"></span></p>
                     <p>🌭 Coup critique: <span id="mCoupCritique"></span></p>
-                    <div class="progress">
-                        <div id="mBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%"
-                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="50"></div>
-                    </div>
                 </div>
             </div>
         </div>
