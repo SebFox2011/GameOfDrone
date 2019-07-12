@@ -47,8 +47,8 @@
     "build-css": "node-sass -r src/sass -o dist/css --output-style=compressed",
     "build-img": "imagemin src/img/* --out-dir=dist/img",
     "js-dir": "make-dir dist/js",
-    "js-transpile": "babel src/js/main.js -o dist/js/main-transpiled.js && babel src/js/Character.js -o dist/js/Character-transpiled.js",
-    "js-minify": "terser dist/js/main-transpiled.js -c -m --source-map -o dist/js/main-minified.js && terser dist/js/Character-transpiled.js -c -m --source-map -o dist/js/Character-minified.js",
+    "js-transpile": "babel src/js/main.js -o dist/js/main-transpiled.js && babel src/js/Character.js -o dist/js/Character-transpiled.js && babel src/js/Round.js -o dist/js/Round-transpiled.js",
+    "js-minify": "terser dist/js/main-transpiled.js -c -m --source-map -o dist/js/main-minified.js && terser dist/js/Character-transpiled.js -c -m --source-map -o dist/js/Character-minified.js && terser dist/js/Round-transpiled.js -c -m --source-map -o dist/js/Round-minified.js",
     "build-js": "run-s js-dir js-transpile js-minify",
     "watch": "npm-watch",
     "clear": "del -f dist/"
