@@ -86,46 +86,9 @@
             
             round:function (attacker,defender) {
 
-                if(attacker.newBorn) {
-                    m.elConsole.innerText += '* ' + m.name + ' lvl ' +m.level+ ' passe à l\'attaque !!';
-                    attacker.newBorn=false;
-                    s.nbRound=0;
-
-                    setTimeout(function (){
-
-                        attacker.animate('bounceInUp',1000,0,1000);
-                    },1000);
-
-                    return;
-                }
-
-                attacker.elConsole.innerText += '------ Round '+ (s.nbRound) +' ------ \n';
-                attacker.elConsole.innerText += '> J\'attaque ' + defender.name + ' !\n';
-
-                // Vérification si le défendant a paré l'attaque
-                if(Math.random() < defender.dodge / 100 ) {
-                    defender.animate('jello',1000,0,1000);
-                    attacker.elConsole.innerText += '> ' + defender.name + ' pare mon attaque...\n';
-                } else { // Sinon le défendant prend des dégâts correspondant à l'attaque de l'attaquant
-                    var isCritial =(Math.random()* 100 < defender.coupCritique);
-
-                    defender.life-= (isCritial ? attacker.attack * 2 : attacker.attack);
-
-                    attacker.elConsole.innerText += '> J\'inflige ' + (isCritial ?attacker.attack * 2  + ' points de dégât Critiques à ':attacker.attack  + ' points de dégât à ')  + defender.name + ' !!\n';
 
 
-                    defender.animate(((isCritial)?'flash':'shake'),1000,0,1000);
 
-                    // Si le défendant est mort
-                    if(defender.life <= 0) {
-                        defender.life=0;
-                        attacker.elConsole.innerText += '> J\'ai vaincu ' + defender.name + '\n';
-                        defender.animate('hinge',1000,0,1000);
-                        //Réinitialisation  des historiques de la console
-                        attacker.elConsole.innerText='';
-                        defender.elConsole.innerText='';
-
-                        attacker.elConsole.innerText='J\'ai vaincu Alien de niveau ' + m.level;
 
                         switch (defender) {
                             case m: m.level ++;
@@ -176,9 +139,8 @@
                         return;
                     }
                 }
-                attacker.elConsole.innerText += '------ Fin du Round ------ \n\n';
+
             }
-        }
     };
     game.init();
 })();

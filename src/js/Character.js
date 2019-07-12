@@ -33,6 +33,30 @@ class Character {
         this.elLevel.innerText=this.level;
     }
 
+    console(text){
+        if(!text){
+            this.elConsole.innerText = '';
+            return;
+        }
+        this.elConsole.innerText +=text;
+    }
+
+    hasDodge(){
+       return (Math.random() < this.dodge / 100);
+    }
+
+    hasCritical(){
+        return (Math.random()* 100 < this.critical);
+    }
+
+    changeLife(hp){
+        this.life+=hp;
+    }
+
+    hasDied (){
+        return (this.life <= 0);
+    }
+
     // Gestion de l'anination des personnages
     animate (anim,duration,delay,remove){
 
@@ -48,5 +72,4 @@ class Character {
             self.elCard.classList.remove(anim);
         },remove);
     }
-
  }
