@@ -32,6 +32,7 @@
                     <p>❤️Vie: <span id="mLife"></span></p>
                     <p>🛡Esquive: <span id="mDodge"></span></p>
                     <p>🗡Attaque: <span id="mAttack"></span></p>
+                    <p>🏆 Experience: <span id="mExperience"></span></p>
                     <p>🌭 Coup critique: <span id="mCoupCritique"></span></p>
                     <div class="progress">
                         <div id="mBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%"

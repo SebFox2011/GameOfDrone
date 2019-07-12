@@ -60,16 +60,9 @@
 
         methods:{
             updateUI:function () {
-                //Mise à jour du player
-               p.updateUi();
-
-                //Mise à jour du Monster
-                m.elName.innerText=m.name;
-                m.elLife.innerText=m.life;
-                m.elDodge.innerText=m.dodge + '%';
-                m.elAttack.innerText=m.attack;
-                m.elLevel.innerText=m.level;
-                m.elCritical.innerText=m.critical;
+                //Mise à jour du player et du monster
+                p.updateUi();
+                m.updateUi();
 
                 s.elRound.innerText = s.nbRound;
                 //Mise à jour des 2 progress bar de vie
