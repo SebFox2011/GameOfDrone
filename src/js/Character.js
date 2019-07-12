@@ -1,6 +1,7 @@
 class Character {
-    constructor (name,lifeStart,dodge,attack,critical,level,coef,elCard,elName,elLife,
+    constructor (isHero,name,lifeStart,dodge,attack,critical,level,coef,elCard,elName,elLife,
     elDodge,elAttack,elCritical,elLevel,elConsole,elExperience){
+        this.isHero=isHero;
         this.name=name;
         this.lifeStart=lifeStart;
         this.life=lifeStart;
@@ -55,6 +56,10 @@ class Character {
 
     hasDied (){
         return (this.life <= 0);
+    }
+
+    levelUp(){
+        ++this.level;
     }
 
     // Gestion de l'anination des personnages

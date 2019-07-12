@@ -1,0 +1,54 @@
+<!--#include file="partials/header.shtml" -->
+
+<section>
+  <div class="container">
+    <div class="row mt-4 justify-content-center">
+      <div id="player" class="card col-4">
+        <div class="card-body">
+          <h5 class="card-title">Personnage</h5>
+          <hr>
+          <p>👨🏻‍🏫 <span id="pName"></span> <i>lvl <span id="pLevel"></span></i></p>
+          <p id="pProgressLife">❤️ <span id="pLife"></span></p>
+          <p>🛡 <span id="pDodge"></span></p>
+          <p>🗡 <span id="pAttack"></span></p>
+          <p>💣 <span id="pCritical"></span></p>
+        </div>
+      </div>
+      <button class="offset-1 btn-warning col-2" style="align-self: center;" id="trigger">⚔️</button>
+      <div id="monster" class="card col-4 offset-1">
+        <div class="card-body">
+          <h5 class="card-title">Monster</h5>
+          <hr>
+          <p>🧟 <span id="mName"></span> <i>lvl <span id="mLevel"></span></i></p>
+          <p>❤️ <span id="mLife"></span></p>
+          <p>🛡 <span id="mDodge"></span></p>
+          <p>🗡 <span id="mAttack"></span></p>
+          <p>💣 <span id="mCritical"></span></p>
+        </div>
+      </div>
+      <div class="card bg-dark text-white col-4 mt-4">
+        <div class="card-body">
+          <h5 class="card-title">Historique :</h5>
+          <hr style="border-color: #fff;">
+          <div id="pConsole">
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-4 mt-4 text-center">
+        <h2>Round <span id="nbRound">0</span></h2>
+      </div>
+      <div class="card bg-dark text-white col-4 mt-4">
+        <div class="card-body">
+          <h5 class="card-title">Historique :</h5>
+          <hr style="border-color: #fff;">
+          <div id="mConsole">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--#include file="partials/footer.shtml" -->
