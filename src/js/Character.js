@@ -36,6 +36,8 @@ class Character {
     // Gestion de l'anination des personnages
     animate (anim,duration,delay,remove){
 
+        let self=this;
+
         this.elCard.style.animationDelay = delay + 'ms';
         this.elCard.style.animationDuration = duration + 'ms';
         this.elCard.style.animationFillMode = 'both';
@@ -43,7 +45,7 @@ class Character {
         this.elCard.classList.add(anim);
 
         setTimeout(function (){
-            this.elCard.classList.remove(anim);
+            self.elCard.classList.remove(anim);
         },remove);
     }
 

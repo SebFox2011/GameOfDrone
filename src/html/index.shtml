@@ -47,7 +47,7 @@
             <div class="card-body">
                 <h5 class="card-text">Console Player</h5>
                 <hr class="bg-white">
-                <div id="pconsole">
+                <div id="pConsole">
                 </div>
             </div>
         </div>

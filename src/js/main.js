@@ -99,7 +99,6 @@
                     return;
                 }
 
-                // Attention, il faudra découper la chaine de caractère afin d'y placer une propriété (voir ligne 90 avec la propriété defender.name)
                 attacker.elConsole.innerText += '------ Round '+ (s.nbRound) +' ------ \n';
                 attacker.elConsole.innerText += '> J\'attaque ' + defender.name + ' !\n';
 
@@ -126,15 +125,15 @@
                         attacker.elConsole.innerText='';
                         defender.elConsole.innerText='';
 
-                        attacker.elConsole.innerText='J ai vaincu Alien de niveau ' + m.level;
+                        attacker.elConsole.innerText='J\'ai vaincu Alien de niveau ' + m.level;
 
                         switch (defender) {
                             case m: m.level ++;
-                                    m.life = Math.round(m.lifeStart * m.coeff);
+                                    m.life = Math.round(m.lifeStart * m.coef);
                                     m.lifeStart = m.life;
                                     m.coupCritique=(m.coupCritique + 1 >= 100) ? 100 : m.coupCritique +1;
-                                    m.dodge=(m.dodge + 1 >= 100) ? 100 : Math.round(m.dodge * m.coeff);
-                                    m.attack = Math.round(m.attack * m.coeff);
+                                    m.dodge=(m.dodge + 1 >= 100) ? 100 : Math.round(m.dodge * m.coef);
+                                    m.attack = Math.round(m.attack * m.coef);
 
                                     if(confirm('Veux-tu prendre une potion qui te rendra 25% de tes points max : '
                                         + p.lifeStart+'? \n Ou bien améliorer ton expérience ?')){
@@ -167,12 +166,11 @@
                                         }
                                     }
                                     m.newBorn=true;
-                                    m.coupCritique =  Math.round(m.coupCritique * m.coeff);
 
                             break;
 
                             default:
-                                alert('Vous etes mort ! en affrontant ' + attacker.name +' de niveau : '+ m.level);
+                                alert('Vous êtes mort en affrontant ' + attacker.name +' de niveau : '+ m.level);
                                 window.location.reload();
                         }
                         return;
