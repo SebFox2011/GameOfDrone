@@ -7,7 +7,7 @@
                 <img src="img/Scrat.jpg" class="card-img-top" alt="Image de Scrat">
                 <div class="card-body">
                     <h5 class="card-title">Player</h5>
-                    <p>🧔🏻 Nom: <span id="pName"></span></p>
+                    <p>🧔🏻 Nom: <span id="pName"></span> level: <span id="pLevel"></span></p>
                     <p>❤️ Vie: <span id="pLife"></span></p>
                     <p>🛡 Esquive: <span id="pDodge"></span></p>
                     <p>🗡 Attaque: <span id="pAttack"></span></p>
@@ -60,7 +60,7 @@
             <div class="card-body">
                 <h5 class="card-text">Console Monster</h5>
                 <hr class="bg-white">
-                <div id="mconsole">
+                <div id="mConsole">
                 </div>
             </div>
         </div>

@@ -5,65 +5,43 @@
     let game={
 
         settings: {
-            player:{
-                elCard:document.getElementById('player'),
-                name: 'Sébastien',//prompt('Votre nom ?','Défaut'),
-                elName:document.getElementById('pName'),
-
-                life: Math.round(Math.random()*200)+100,//vie
-                elLife:document.getElementById('pLife'),
-                elProgressBar:document.getElementById('pBar'),
-                lifeStart:0,
-
-                dodge: Math.round(Math.random()*50),//parad
-                elDodge:document.getElementById('pDodge'),
-
-                attack: 10 + Math.round(Math.random()*15),//attaque
-                elAttack:document.getElementById('pAttack'),
-
-                experience:1,
-                elExperience:document.getElementById('pExperience'),
-
-                elConsole: document.getElementById('pconsole'),
-
-                coupCritique:Math.round(Math.random()*10),
-                elCoupCritique:document.getElementById('pCoupCritique')
-            },
-
-            monster:{
-                elCard:document.getElementById('monster'),
-
-                name: 'Monster',//prompt('Votre nom ?','Défaut'),
-                elName:document.getElementById('mName'),
-
-                coeff:1.2,
-                baseMonsterLife:0,
-
-                level:1,
-                elLevel:document.getElementById('mLevel'),
-
-                life: 75,//Math.round(Math.random()*200)+100,//vie
-                elLife:document.getElementById('mLife'),
-                elProgressBar:document.getElementById('mBar'),
-                lifeStart:75,
-
-                dodge: 5,//Math.round(Math.random()*50),//parad
-                elDodge:document.getElementById('mDodge'),
-
-                attack: 6,//Math.round(Math.random()*10),//attaque
-                elAttack:document.getElementById('mAttack'),
-
-                elConsole: document.getElementById('mconsole'),
-
-                newBorn:false,
-
-                coupCritique:5,
-                elCoupCritique: document.getElementById('mCoupCritique')
-            },
             nbRound:1,
             elTrigger: document.getElementById('trigger'),
             elRound:document.getElementById('nbRound'),
-            //elBar:document.getElementById()
+
+            player: new Character(prompt('Ton nom héro ?', 'Hercule'),
+                100 + Math.round(Math.random()*200),
+                Math.round(Math.random()*50),
+                10 + Math.round(Math.random()*15),
+                Math.round(Math.random()*10),
+                1,
+                1.2,
+                'player',
+                'pName',
+                'pLife',
+                'pDodge',
+                'pAttack',
+                'pCoupCritique',
+                'pLevel',
+                'pConsole',
+                'pExperience'),
+
+            monster: new Character('Monster',
+                75,
+                5,
+                6,
+                5,
+                1,
+                1.2,
+                'monster',
+                'mName',
+                'mLife',
+                'mDodge',
+                'mAttack',
+                'mCoupCritique',
+                'mLevel',
+                'mConsole',
+                'mExperience'),
         },
 
         init:function () {
@@ -71,13 +49,11 @@
          s=self.settings; //alias de self.setting sinon c'est long a taper
          p=s.player;
          m=s.monster;
-         p.lifeStart=p.life;
-         m.lifeStart=m.life;
 
 
         s.elTrigger.addEventListener('click',self.methods.play); //play () lance la fonction 1 première fois
-        s.player.elProgressBar.style.width='100%';
-        s.monster.elProgressBar.style.width='100%';
+        //s.player.elProgressBar.style.width='100%';
+        //s.monster.elProgressBar.style.width='100%';
 
         self.methods.updateUI();
         },
@@ -85,13 +61,7 @@
         methods:{
             updateUI:function () {
                 //Mise à jour du player
-                p.elName.innerText=p.name;
-                p.elLife.innerText=p.life;
-                //p.elLifeBar.innerText=p.lifeBar;
-                p.elDodge.innerText=p.dodge + '%';
-                p.elAttack.innerText=p.attack;
-                p.elExperience.innerText=p.experience;
-                p.elCoupCritique.innerText=p.coupCritique;
+               p.updateUi();
 
                 //Mise à jour du Monster
                 m.elName.innerText=m.name;
@@ -99,18 +69,19 @@
                 m.elDodge.innerText=m.dodge + '%';
                 m.elAttack.innerText=m.attack;
                 m.elLevel.innerText=m.level;
-                m.elCoupCritique.innerText=m.coupCritique;
+                m.elCritical.innerText=m.critical;
 
                 s.elRound.innerText = s.nbRound;
+                //Mise à jour des 2 progress bar de vie
+                //s.player.elProgressBar.style.width=player.life*100/player.lifeStart+'%';
+                //s.player.elProgressBar.innerText=Math.round(player.life*100/player.lifeStart)+' %';
 
-                s.player.elProgressBar.style.width=p.life*100/p.lifeStart+'%';
-                s.player.elProgressBar.innerText=Math.round(p.life*100/p.lifeStart)+' %';
-
-                s.monster.elProgressBar.style.width=m.life*100/m.lifeStart+'%';
-                s.monster.elProgressBar.innerText=Math.round(m.life*100/m.lifeStart)+' %';
+                //s.monster.elProgressBar.style.width=m.life*100/m.lifeStart+'%';
+                //s.monster.elProgressBar.innerText=Math.round(m.life*100/m.lifeStart)+' %';
 
             },
 
+            // Gestion de l'anination des personnages
             animate: function(character,anim,duration,delay,remove){
 
                 character.elCard.style.animationDelay = delay + 'ms';
@@ -215,9 +186,6 @@
 
                                         }
                                     }
-                                    
-                                    //p.life += p.experience * 20;
-                                    //p.lifeStart=p.life;
                                     m.newBorn=true;
                                     m.coupCritique =  Math.round(m.coupCritique * m.coeff);
 
@@ -236,5 +204,4 @@
         }
     };
     game.init();
-
 })();

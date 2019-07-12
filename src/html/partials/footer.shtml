@@ -11,6 +11,7 @@
         </div>
     </div>
 </footer>
+<script src="js/Character-minified.js"></script>
 <script src="js/main-minified.js"></script>
 </body>
 </html>
