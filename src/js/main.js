@@ -55,12 +55,7 @@
             s = self.settings; //alias de self.setting sinon c'est long a taper
             p = s.player;
             m = s.monster;
-
-
             s.elTrigger.addEventListener('click', self.methods.play); //play () lance la fonction 1 première fois
-            //s.player.elProgressBar.style.width='100%';
-            //s.monster.elProgressBar.style.width='100%';
-
             self.methods.updateUI();
         },
 
@@ -70,13 +65,11 @@
                 p.updateUi();
                 m.updateUi();
                 s.elRound.innerText = 0;
-                //s.elRound.innerText = s.nbRound;
             },
 
             play: function () {
                 let turn1 = new Round(p,m);
                 let turn2 =new Round(m,p);
-
 
                 turn1.fight();
                 turn2.fight();
